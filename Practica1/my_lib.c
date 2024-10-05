@@ -66,10 +66,12 @@ char *my_strcat(char *dest, const char *src) {
     return dest_original;
 }
 
-//Mirar por que no devuelve (null)
 char *my_strchr(const char *s, int c) {
     while(*s != c && *s++);     //  Mientras no se haya encontrado el carácter buscado y no se haya acabado el array,
                                 //  incrementar la posición a la que apunta s
-
+    if(*s != c) {               //  Devuelve NULL si no se ha encontrado el carácter
+        return 0;
+    }
+    
     return (char*)s;            //  Devolver el array s
 }
